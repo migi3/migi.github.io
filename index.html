@@ -24,7 +24,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 10px;
             line-height: 1.6;
         }
 
@@ -32,7 +32,7 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             border-radius: 24px;
-            padding: 40px;
+            padding: 30px 25px;
             max-width: 400px;
             width: 100%;
             text-align: center;
@@ -152,9 +152,20 @@
         }
 
         @media (max-width: 480px) {
+            body {
+                padding: 5px;
+                align-items: flex-start;
+                padding-top: 20px;
+            }
+            
             .card {
-                padding: 30px 20px;
-                margin: 10px;
+                padding: 20px 15px;
+                margin: 0;
+                border-radius: 20px;
+                min-height: calc(100vh - 40px);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
             
             .name {
@@ -164,6 +175,17 @@
             .profile-image {
                 width: 100px;
                 height: 100px;
+                margin-bottom: 20px;
+            }
+            
+            .bio {
+                font-size: 14px;
+                margin-bottom: 25px;
+            }
+            
+            .social-link {
+                padding: 12px 16px;
+                font-size: 14px;
             }
         }
 
