@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>あなたのプロフィール</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 8px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title {
+            font-size: 16px;
+            color: #718096;
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .bio {
+            font-size: 15px;
+            color: #4a5568;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .social-link:hover::before {
+            left: 100%;
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .social-link.x {
+            background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+        }
+
+        .social-link.note {
+            background: linear-gradient(135deg, #41c9b4, #2fb3a6);
+        }
+
+        .social-link.shizuka {
+            background: linear-gradient(135deg, #6b7280, #4b5563);
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            fill: currentColor;
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            .name {
+                font-size: 24px;
+            }
+            
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /* アニメーション */
+        .card {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .social-link {
+            animation: slideInLeft 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .social-link:nth-child(1) { animation-delay: 0.2s; }
+        .social-link:nth-child(2) { animation-delay: 0.4s; }
+        .social-link:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- プロフィール画像（あなたの写真に置き換えてください） -->
+        <img src="https://via.placeholder.com/120x120/667eea/ffffff?text=写真" alt="プロフィール写真" class="profile-image">
+        
+        <!-- 名前とタイトル -->
+        <h1 class="name">右田 涼 (MIGITA Ryo)</h1>
+        <p class="title">プロダクトマネージャー</p>
+        
+        <!-- 自己紹介文 -->
+        <p class="bio">
+            株式会社カミナシでtoBのプロダクトマネージャー（PdM）をしています。
+            良き仲間と良いプロダクトをつくり、良い社会にしていくことをめざしたいです。
+
+            都会・地方関係なく、多くの人が日々使う道具づくりがしたいと考えています。
+            自分自身が地方出身者で、ものづくり／インターネットに魅力を感じ飛び出しました。 関心があるのは地方にも都会にもあるものをテクノロジーでより便利にすることです。
+            デジタルデバイドを少しでも埋めて、生まれた場所や住む場所に関わらず快適で自由な暮らしができるようになるような道具（プロダクト）づくり／事業に関わりたいです。 また、自分自身が非効率な業務に対する煩わしさが苦手で、それらを解決したいです。
+
+            加えて、機能するもの（プロダクト、チーム、プロセス）をつくることに関心があります。
+        </p>
+        
+        <!-- SNSリンク -->
+        <div class="social-links">
+            <a href="https://x.com/migii000" class="social-link x" target="_blank" rel="noopener noreferrer">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                X (Twitter)
+            </a>
+            
+            <a href="https://note.com/mcmr" class="social-link note" target="_blank" rel="noopener noreferrer">
+                <img src="images/note-icon.png" class="icon" alt="note">
+                note
+            </a>
+            
+            <a href="https://sizu.me/migi3" class="social-link shizuka" target="_blank" rel="noopener noreferrer">
+                <img src="images/shizuka-logo-white.png" class="icon" alt="しずかなインターネット">
+                しずかなインターネット
+            </a>
+        </div>
+    </div>
+</body>
+</html>
